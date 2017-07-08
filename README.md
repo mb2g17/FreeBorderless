@@ -9,6 +9,9 @@ It doesn't do anything fancy. It just makes your games borderless fullscreen, an
 # Releases
 https://github.com/Taking1n1/FreeBorderless/releases
 
+# Developed on
+Windows 7 Professional x64
+
 # Images
 ![FreeBorderless](https://raw.githubusercontent.com/Taking1n1/FreeBorderless/master/ss1.png)
 ![FreeBorderless](https://raw.githubusercontent.com/Taking1n1/FreeBorderless/master/ss2.png)
