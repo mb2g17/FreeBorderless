@@ -6,5 +6,5 @@ A C# utility that fullscreens games by making them 'borderless', stopping them f
 # How good is it?
 It doesn't do anything fancy. It just makes your games borderless fullscreen, and that's about it; no 'favourites', no weird stuff, just basic fullscreening.
 
-# Can I have a link to its release?
-Of course you can: https://github.com/Taking1n1/FreeBorderless/raw/master/FreeBorderless/bin/Release/FreeBorderless.exe
+# Releases
+https://github.com/Taking1n1/FreeBorderless/releases
