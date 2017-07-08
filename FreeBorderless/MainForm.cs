@@ -88,6 +88,10 @@ namespace FreeBorderless
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // If there's nothing to select, return
+            if (processesListBox.SelectedIndex == -1)
+                return;
+
             // Get the selected window
             Window wind = windows[processesListBox.SelectedIndex];
 
@@ -187,6 +191,10 @@ namespace FreeBorderless
 
         private void unborderlessBtn_Click(object sender, EventArgs e)
         {
+            // If there's nothing to select, return
+            if (borderlessListBox.SelectedIndex == -1)
+                return;
+
             // Get the selected window
             Window wind = borderlessWindows[borderlessListBox.SelectedIndex];
 
