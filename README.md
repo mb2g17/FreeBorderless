@@ -1,4 +1,4 @@
-![FreeBorderless](https://raw.githubusercontent.com/Taking1n1/FreeBorderless/master/logo.png)
+#![FreeBorderless](https://raw.githubusercontent.com/Taking1n1/FreeBorderless/master/logo.png)
 A C# utility that fullscreens games by making them 'borderless', stopping them from behaving all weird when alt-tabbing out of them.
 
 # What is this?
