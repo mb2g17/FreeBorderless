@@ -76,14 +76,33 @@ namespace FreeBorderless
         public static long WS_DLGFRAME = 0x00400000L;
         public static long WS_SIZEBOX = 0x00040000L;
 
-        // List of windows
+        // List of windows and screens
         List<Window> windows = new List<Window>();
         List<Window> borderlessWindows = new List<Window>();
+        List<Screen> screensList = new List<Screen>();
 
         public MainForm()
         {
             InitializeComponent();
             refreshListBtn_Click(null, null);
+
+            // Add all screens to the lists
+            Screen[] screens = Screen.AllScreens;
+            foreach (Screen screen in screens)
+            {
+                screensComboBox.Items.Add(screen.DeviceName);
+                screensList.Add(screen);
+            }
+
+            // Selects the main screen
+            for (int i = 0; i < screens.Length; i++)
+            {
+                if (screens[i] == Screen.PrimaryScreen)
+                {
+                    screensComboBox.SelectedIndex = i;
+                    break;
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -114,7 +133,7 @@ namespace FreeBorderless
 
             // Gets menu
             IntPtr hmenu = GetMenu(wind.handle);
-            wind.menu = hmenu;
+            //wind.menu = hmenu;
 
             // Hides menu
             SetMenu(wind.handle, IntPtr.Zero);
@@ -127,8 +146,11 @@ namespace FreeBorderless
             wind.oldStyle = style;
             SetWindowLong(wind.handle, -16, style & ~(WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SIZEBOX));
 
+            // Gets selected screen
+            Screen screen = screensList[screensComboBox.SelectedIndex];
+
             // Moves and resizes window to the top
-            MoveWindow(wind.handle, 0, 0, 1366, 768, true);
+            MoveWindow(wind.handle, screen.Bounds.X, screen.Bounds.Y, screen.Bounds.Width, screen.Bounds.Height, true);
 
             // Add these to borderless windows
             borderlessListBox.Items.Add(wind.title);
@@ -170,6 +192,7 @@ namespace FreeBorderless
                         Window window = new Window();
                         window.title = pro.MainWindowTitle;
                         window.handle = handle;
+                        window.menu = GetMenu(handle);
                         windows.Add(window);
                         processesListBox.Items.Add(window.title);
                     }
@@ -236,6 +259,19 @@ namespace FreeBorderless
         {
             About about = new About();
             about.Show(this);
+        }
+
+        private void screensComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Get the screen that has been selected
+            Screen screen = screensList[screensComboBox.SelectedIndex];
+
+            // Writes x, y, width and height of screen
+            screenBoundsBox.Text =
+                "X:       " + screen.Bounds.X + Environment.NewLine +
+                "Y:       " + screen.Bounds.Y + Environment.NewLine +
+                "Width:   " + screen.Bounds.Width + Environment.NewLine +
+                "Height:  " + screen.Bounds.Height;
         }
     }
 }

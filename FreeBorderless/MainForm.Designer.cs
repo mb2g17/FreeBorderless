@@ -38,14 +38,18 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.borderlessListBox = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.screensComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.screenBoundsBox = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // borderlessBtn
             // 
-            this.borderlessBtn.Location = new System.Drawing.Point(357, 97);
+            this.borderlessBtn.Location = new System.Drawing.Point(359, 97);
             this.borderlessBtn.Name = "borderlessBtn";
-            this.borderlessBtn.Size = new System.Drawing.Size(89, 49);
+            this.borderlessBtn.Size = new System.Drawing.Size(105, 49);
             this.borderlessBtn.TabIndex = 0;
             this.borderlessBtn.Text = "Borderless it!";
             this.borderlessBtn.UseVisualStyleBackColor = true;
@@ -70,9 +74,9 @@
             // 
             // refreshListBtn
             // 
-            this.refreshListBtn.Location = new System.Drawing.Point(357, 185);
+            this.refreshListBtn.Location = new System.Drawing.Point(359, 185);
             this.refreshListBtn.Name = "refreshListBtn";
-            this.refreshListBtn.Size = new System.Drawing.Size(89, 42);
+            this.refreshListBtn.Size = new System.Drawing.Size(105, 42);
             this.refreshListBtn.TabIndex = 3;
             this.refreshListBtn.Text = "Refresh processes lists";
             this.refreshListBtn.UseVisualStyleBackColor = true;
@@ -80,9 +84,9 @@
             // 
             // unborderlessBtn
             // 
-            this.unborderlessBtn.Location = new System.Drawing.Point(357, 262);
+            this.unborderlessBtn.Location = new System.Drawing.Point(359, 262);
             this.unborderlessBtn.Name = "unborderlessBtn";
-            this.unborderlessBtn.Size = new System.Drawing.Size(89, 49);
+            this.unborderlessBtn.Size = new System.Drawing.Size(105, 49);
             this.unborderlessBtn.TabIndex = 4;
             this.unborderlessBtn.Text = "Unborderless it!";
             this.unborderlessBtn.UseVisualStyleBackColor = true;
@@ -95,7 +99,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(454, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(721, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,11 +127,54 @@
             this.borderlessListBox.Size = new System.Drawing.Size(339, 134);
             this.borderlessListBox.TabIndex = 7;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(470, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Screens:";
+            // 
+            // screensComboBox
+            // 
+            this.screensComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.screensComboBox.FormattingEnabled = true;
+            this.screensComboBox.Location = new System.Drawing.Point(473, 55);
+            this.screensComboBox.Name = "screensComboBox";
+            this.screensComboBox.Size = new System.Drawing.Size(236, 21);
+            this.screensComboBox.TabIndex = 10;
+            this.screensComboBox.SelectedIndexChanged += new System.EventHandler(this.screensComboBox_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(470, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Bounds of selected screen:";
+            // 
+            // screenBoundsBox
+            // 
+            this.screenBoundsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.screenBoundsBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screenBoundsBox.Location = new System.Drawing.Point(473, 117);
+            this.screenBoundsBox.Name = "screenBoundsBox";
+            this.screenBoundsBox.ReadOnly = true;
+            this.screenBoundsBox.Size = new System.Drawing.Size(236, 96);
+            this.screenBoundsBox.TabIndex = 12;
+            this.screenBoundsBox.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 376);
+            this.ClientSize = new System.Drawing.Size(721, 376);
+            this.Controls.Add(this.screenBoundsBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.screensComboBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.borderlessListBox);
             this.Controls.Add(this.menuStrip1);
@@ -141,7 +188,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "FreeBorderless";
+            this.Text = "FreeBorderless v1.2";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -160,6 +207,10 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox borderlessListBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox screensComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox screenBoundsBox;
     }
 }
 
